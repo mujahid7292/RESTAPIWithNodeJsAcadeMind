@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
+const productsRoutes = require('./api/routes/products');
+const orderRoutes = require('./api/routes/orders')
 
 //First Middleware
-app.use((req,res,next)=>{
-    res.status(200).json({
-        message:"Hello World"
-    });
-});
+app.use('/products',productsRoutes);
+
+//Second Middleware
+app.use('/orders',orderRoutes);
 
 module.exports = app;
